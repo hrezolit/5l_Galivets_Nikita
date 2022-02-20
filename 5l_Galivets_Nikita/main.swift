@@ -96,7 +96,7 @@ extension Carable {
 
 
 /// 1) Выриант class SportCar
-final class SportCar: Carable, CustomStringConvertible {
+final class SportCar: Carable {
     
     var description: String {
         return """
@@ -128,19 +128,16 @@ Actions:
     }
     
     var brand: String
-    
     var model: String
-    
     var color: Color
-    
     var isEngineWork: Engine
-    
     var isWindowsOpen: Windows
-    
     var trunkFullness: UInt
-    
     var trunkVolume: UInt
+    let turboBoosting: UInt = 100
     
+    private var turboCondition: isTurboExist
+    private let backseat: isBackseatExist
     private var maxSpeed: UInt {
         didSet {
             if  maxSpeed < 400 {
@@ -151,9 +148,7 @@ Actions:
         }
     }
     
-    let turboBoosting: UInt = 100
-    private var turboCondition: isTurboExist
-    private let backseat: isBackseatExist
+    
     
     init(brand: String,
          model: String,
@@ -194,9 +189,13 @@ Actions:
         }
     }
     
-    func status() { }
+    func status() {}
 }
 
+/// Имплементация протокола через расширение
+extension SportCar: CustomStringConvertible {}
+
+///Экземпляр класса  SportCar
 var tesla = SportCar(brand: "Tesla",
                      model: "Roadster",
                      color: .red,
@@ -228,7 +227,21 @@ print("""
 """)
 
 /// 2) Выриант class Truck
-final class Truck: Carable, CustomStringConvertible{
+final class Truck: Carable{
+    
+    var brand: String
+    
+    var model: String
+    
+    var color: Color
+    
+    var isEngineWork: Engine
+    
+    var isWindowsOpen: Windows
+    
+    var trunkVolume: UInt
+    
+    var trunkFullness: UInt
     
     var description: String {
         return """
@@ -247,27 +260,10 @@ Actions:
 """
     }
     
-    var brand: String
-    
-    var model: String
-    
-    var color: Color
-    
-    var isEngineWork: Engine
-    
-    var isWindowsOpen: Windows
-    
-    var trunkVolume: UInt
-    
-    var trunkFullness: UInt
-    
-    
-    enum  HindcarrigeCondition{
-        case set
-        case remove
-    }
-    
     var isHindcarrigeExist: HindcarrigeCondition
+    
+    lazy var overallVolume = hindcarrigeFullness + trunkFullness
+    
     private let hindcarrigeFullness: UInt
     private var hindcarriageVolume: UInt {
         didSet {
@@ -283,7 +279,10 @@ Actions:
         }
     }
     
-    lazy var overallVolume = hindcarrigeFullness + trunkFullness
+    enum  HindcarrigeCondition{
+        case set
+        case remove
+    }
     
     init(brand: String,
          model: String,
@@ -313,6 +312,10 @@ Actions:
     func status() { }
 }
 
+/// Имплементация протокола через расширение
+extension Truck: CustomStringConvertible {}
+
+///Экземпляр класса  Truck
 var teslaTruck = Truck(brand: "Tesla",
                        model: "Semi",
                        color: .silver,

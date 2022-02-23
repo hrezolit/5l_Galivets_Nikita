@@ -94,8 +94,6 @@ extension Carable {
 
 // 6) Вывести сами объекты в консоль.
 
-
-/// 1) Выриант class SportCar
 final class SportCar: Carable, CustomStringConvertible {
     
     enum isTurboExist {
@@ -148,8 +146,6 @@ final class SportCar: Carable, CustomStringConvertible {
         }
     }
     
-    
-    
     init(brand: String,
          model: String,
          color: Color,
@@ -190,7 +186,7 @@ final class SportCar: Carable, CustomStringConvertible {
     }
 }
 
-///Экземпляр класса  SportCar
+//Экземпляр класса  SportCar
 var tesla = SportCar(brand: "Tesla",
                      model: "Roadster",
                      color: .red,
@@ -296,7 +292,7 @@ final class Truck: Carable, CustomStringConvertible{
     }
 }
 
-///Экземпляр класса  Truck
+//Экземпляр класса  Truck
 var teslaTruck = Truck(brand: "Tesla",
                        model: "Semi",
                        color: .silver,

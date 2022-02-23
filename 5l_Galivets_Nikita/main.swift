@@ -9,18 +9,6 @@ import Foundation
 
 //MARK: - 1) Создать протокол «Car» и описать свойства, общие для автомобилей, а также метод действия.
 
-protocol Carable {
-    
-    var brand: String { get }
-    var model: String { get }
-    var color: Color { get }
-    var isEngineWork: Engine { get set }
-    var isWindowsOpen: Windows { get set }
-    var trunkFullness: UInt { get set }
-    var trunkVolume: UInt { get set }
-    
-}
-
 enum Color {
     case white
     case yellow
@@ -44,6 +32,17 @@ enum Windows {
 enum Trunk {
     case putInTrunk
     case takeFromTrunk
+}
+protocol Carable {
+    
+    var brand: String { get }
+    var model: String { get }
+    var color: Color { get }
+    var isEngineWork: Engine { get set }
+    var isWindowsOpen: Windows { get set }
+    var trunkFullness: UInt { get set }
+    var trunkVolume: UInt { get set }
+    
 }
 
 //MARK: - 2) Создать расширения для протокола «Car» и реализовать в них методы конкретных действий с автомобилем: открыть/закрыть окно, запустить/заглушить двигатель и т.д. (по одному методу на действие, реализовывать следует только те действия, реализация которых общая для всех автомобилей).

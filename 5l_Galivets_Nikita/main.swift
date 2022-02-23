@@ -43,6 +43,10 @@ protocol Carable {
     var trunkFullness: UInt { get set }
     var trunkVolume: UInt { get set }
     
+    mutating func trunkAction(type: Trunk)
+    mutating func windowsAction(type: Windows)
+    mutating func engineAction(type: Engine)
+    
 }
 
 //MARK: - 2) Создать расширения для протокола «Car» и реализовать в них методы конкретных действий с автомобилем: открыть/закрыть окно, запустить/заглушить двигатель и т.д. (по одному методу на действие, реализовывать следует только те действия, реализация которых общая для всех автомобилей).
